@@ -29,15 +29,17 @@ public class Spa {
             // Variable for select choice
             int select_choice = input.nextInt();
             if (select_choice == 1) {
-                System.out.print("------------ [ Add new user ] ------------");
+                System.out.println("------------ [ Add new user ] ------------");
                 System.out.print("Enter user name : ");
                 user_info[0][user_id] = input.next();
                 System.out.print("Enter user phone number : ");
                 user_info[1][user_id] = input.next();
                 System.out.print("Enter user email : ");
                 user_info[2][user_id] = input.next();
-                System.out.println("You added"+user_info[0][user_id]+" , "+user_info[1][user_id]+" , "+user_info[2][user_id]+" to user id "+user_id);
-                System.out.print("-----------------------------------------");
+                System.out.println("You added Name : "+user_info[0][user_id]+" , Phone :  "+user_info[1][user_id]+" , Email : "+user_info[2][user_id]+" to user id "+user_id);
+                user_id++;
+            } else if (select_choice == 0) {
+                break;
             }
         }
     }

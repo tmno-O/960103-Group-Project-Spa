@@ -38,6 +38,15 @@ public class Spa {
                 user_info[2][user_id] = input.next();
                 System.out.println("You added Name : "+user_info[0][user_id]+" , Phone :  "+user_info[1][user_id]+" , Email : "+user_info[2][user_id]+" to user id "+user_id);
                 user_id++;
+            } else if (select_choice == 2) {
+                System.out.println("Enter user id : ");
+                int select_user_id = input.nextInt();
+                if (select_user_id >= user_id) {
+                    System.out.println("User id not found");
+                    continue;
+                } else {
+                    System.out.println("Pap");
+                }
             } else if (select_choice == 0) {
                 break;
             }

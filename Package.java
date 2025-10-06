@@ -1,54 +1,72 @@
 import java.util.Scanner;
-public class Package {
-    public static String getPackageName(String package_id){
-        String packagePrint = "";
-        String[] product_name = {
-                "[1] นวดแผนไทย",
-                "[2] นวดน้ำมัน",
-                "[3] นวดประคบสมุนไพร",
-                "[4] ซาวหน้า",
-                "[5] อบสมุนไพร",
-                "[6] อโรม่า",
-                "[7] นวดหลัง",
-                "[8] นวดเท้า",
-                "[9] สปาหน้า"
-        };
-        String[] package_name = {
-                "แพ็คเกจ [A] : นวดแผนไทย + นวดหลัง + นวดเท้า",
-                "แพ็คเกจ [B] : นวดน้ำมัน + อบสมุนไพร + สปาหน้า",
-                "แพ็คเกจ [C] : นวดประคบสมุนไพร + ซาวหน้า + อโรม่า"
-        };
-        for(int i = 0 ; i < product_name.length ; i++){
-            packagePrint += product_name[i]+" \n";
-        } packagePrint += "\n";
-         for(int i = 0 ; i < package_name.length ; i++){
-            packagePrint += package_name[i]+" \n";
+    public class Package {
+
+        //เมธอดที่ 1: แสดงเมนูบริการให้เลือก
+        public static void showServiceMenu() {
+            System.out.println("\n----- เมนูบริการใน -----");
+            System.out.println("1.นวดแผนไทย");
+            System.out.println("2.นวดน้ำมัน");
+            System.out.println("3.สปาหน้า");
+            System.out.println("4.อบสมุนไพร");
+            System.out.println("5.อโรม่า");
+            System.out.println("-------------------------");
         }
 
-        if(package_id == ""){
-            System.out.println(packagePrint);
-        } else if (package_id == "B") {
-            package_id = package_name[1];
-        } else if (package_id == "C") {
-            package_id = package_name[2];
-        }else if(package_id == "A"){
-            package_id = package_name[0];
-        }else if(package_id == "1"){
-            package_id = product_name[0];
+        //เมธอดที่ 2: แสดงข้อมูลการจองทั้งหมด
+        public static void showAllBookings(String[][] bookings) {
+            System.out.println("\n===== ข้อมูลการจองทั้งหมด =====");
+            for (int i = 0; i < bookings.length; i++) {
+                System.out.println("ข้อมูลการจอง " + (i + 1));
+                System.out.println("ชื่อ-นามสกุล: " + bookings[i][0]);
+                System.out.println("เบอร์โทรศัพท์: " + bookings[i][1]);
+                System.out.println("วันและเวลา: " + bookings[i][2]);
+                System.out.println("ประเภทบริการ: " + bookings[i][3]);
+                System.out.println("ข้อมูลสุขภาพ: " + bookings[i][4]);
+                System.out.println("------------------------------");
+            }
         }
-        else{
-            package_id = "Enter again";
-        }
-        System.out.println(package_id);
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
 
-        return package_id;
+            //รับจำนวนการจอง
+            System.out.print("กรอกจำนวนการจองที่ต้องการบันทึก: ");
+            int n = sc.nextInt();
+            sc.nextLine();
+
+            //สำหรับเก็บข้อมูลลูกค้า
+            //[แถว = จำนวนการจอง],[คอลัมน์ = รายละเอียดแต่ละอย่าง]
+            String[][] bookings = new String[n][5];
+            //ลูปรับข้อมูลจากผู้ใช้
+            for (int i = 0; i < n; i++) {
+                System.out.println("\n=== กรอกข้อมูลการจองที่ " + (i + 1) + " ===");
+
+                System.out.print("ชื่อ-นามสกุล: ");
+                bookings[i][0] = sc.nextLine();
+
+                System.out.print("เบอร์โทรศัพท์: ");
+                bookings[i][1] = sc.nextLine();
+
+                System.out.print("วันและเวลาใช้บริการ (ตัวอย่าง 16-10-2568 12:00 *โปรดพิมพ์ตามตัวอย่างเท่านั้น*): ");
+                bookings[i][2] = sc.nextLine();
+
+                //เรียกเมธอดแสดงเมนูบริการ
+                showServiceMenu();
+                System.out.print("เลือกหมายเลขบริการ (1-5): ");
+                String choice = sc.nextLine();
+                //แปลงตัวเลขเป็นชื่อบริการ
+                switch (choice) {
+                    case "1": bookings[i][3] = "นวดแผนไทย"; break;
+                    case "2": bookings[i][3] = "นวดน้ำมัน"; break;
+                    case "3": bookings[i][3] = "สปาหน้า"; break;
+                    case "4": bookings[i][3] = "อบสมุนไพร"; break;
+                    case "5": bookings[i][3] = "อโรม่า"; break;
+
+                    default: bookings[i][3] = "ไม่ทราบประเภทบริการ"; break;
+                }
+                System.out.print("ข้อมูลสุขภาพ (เช่น โรคประจำตัว, ตั้งครรภ์, เคยผ่าตัด, ฯลฯ): ");
+                bookings[i][4] = sc.nextLine();
+            }
+            //แสดงข้อมูลทั้งหมดจ้า
+            showAllBookings(bookings);
+        }
     }
-    public static void main(String[] args) {
-        String choice ="";
-        Scanner input = new Scanner(System.in);
-        System.out.println(getPackageName(choice));
-        System.out.println("Select your package : ");
-        choice = input.nextLine();
-        getPackageName(choice);
-    }
-}

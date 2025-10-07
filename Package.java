@@ -1,7 +1,7 @@
 import java.util.Scanner;
     public class Package {
 
-        //เมธอดที่ 1: แสดงเมนูบริการให้เลือก
+        //ไว้แสดงเมนูบริการให้เลือก
         public static void showServiceMenu() {
             System.out.println("\n----- เมนูบริการใน -----");
             System.out.println("1.นวดแผนไทย");
@@ -12,7 +12,7 @@ import java.util.Scanner;
             System.out.println("-------------------------");
         }
 
-        //เมธอดที่ 2: แสดงข้อมูลการจองทั้งหมด
+        //ไว้แสดงข้อมูลการจองทั้งหมดจ้า อิอิ
         public static void showAllBookings(String[][] bookings) {
             System.out.println("\n===== ข้อมูลการจองทั้งหมด =====");
             for (int i = 0; i < bookings.length; i++) {
@@ -55,7 +55,7 @@ import java.util.Scanner;
                 String choice = sc.nextLine();
                 //แปลงตัวเลขเป็นชื่อบริการ
                 switch (choice) {
-                    case "1": bookings[i][3] = "นวดแผนไทย"; break;
+                    case "1": bookings[i][3] = "นวดแผนไทย";break;
                     case "2": bookings[i][3] = "นวดน้ำมัน"; break;
                     case "3": bookings[i][3] = "สปาหน้า"; break;
                     case "4": bookings[i][3] = "อบสมุนไพร"; break;

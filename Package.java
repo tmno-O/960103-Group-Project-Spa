@@ -27,16 +27,6 @@ import java.util.Scanner;
             }
         }
 
-        //dew/* 
-        public static void payforus(){
-            float[] pay = new float[5];
-            pay[0] = 300;//นวดแผนไทย
-            pay[1] = 300;//นวดน้ำมัน
-            pay[2] = 500;//สปาหน้า
-            pay[3] = 700;//อบสมุนไพร
-            pay[4] = 900;//อโรม่า
-            
-        }
 
         //fasai
         public static void main(String[] args) { 
@@ -80,7 +70,7 @@ import java.util.Scanner;
 
                     default: bookings[i][3] = "ไม่ทราบประเภทบริการ"; break;   
                 } 
-                sc.nextLine(); 
+               
             
             
 

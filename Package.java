@@ -1,7 +1,7 @@
 import java.util.Scanner;
     public class Package {
 
-        //ไว้แสดงเมนูบริการให้เลือก
+        //ไว้แสดงเมนูบริการให้เลือก //fasai
         public static void showServiceMenu() {
             System.out.println("\n----- เมนูบริการใน -----");
             System.out.println("1.นวดแผนไทย");
@@ -12,7 +12,7 @@ import java.util.Scanner;
             System.out.println("-------------------------");
         }
 
-        //ไว้แสดงข้อมูลการจองทั้งหมดจ้า อิอิ
+        //ไว้แสดงข้อมูลการจองทั้งหมดจ้า อิอิ  //fasai
         public static void showAllBookings(String[][] bookings) {
             System.out.println("\n===== ข้อมูลการจองทั้งหมด =====");
             for (int i = 0; i < bookings.length; i++) {
@@ -25,7 +25,20 @@ import java.util.Scanner;
                 System.out.println("------------------------------");
             }
         }
-        public static void main(String[] args) {
+
+        //dew
+        public static void payforus(){
+            float[] pay = new float[5];
+            pay[0] = 300;//นวดแผนไทย
+            pay[1] = 300;//นวดน้ำมัน
+            pay[2] = 500;//สปาหน้า
+            pay[3] = 700;//อบสมุนไพร
+            pay[4] = 900;//อโรม่า
+            
+        }
+
+        //fasai
+        public static void main(String[] args) { 
             Scanner sc = new Scanner(System.in);
 
             //รับจำนวนการจอง
@@ -55,14 +68,15 @@ import java.util.Scanner;
                 String choice = sc.nextLine();
                 //แปลงตัวเลขเป็นชื่อบริการ
                 switch (choice) {
-                    case "1": bookings[i][3] = "นวดแผนไทย";break;
-                    case "2": bookings[i][3] = "นวดน้ำมัน"; break;
-                    case "3": bookings[i][3] = "สปาหน้า"; break;
-                    case "4": bookings[i][3] = "อบสมุนไพร"; break;
-                    case "5": bookings[i][3] = "อโรม่า"; break;
+                    case "1": bookings[i][3] = "นวดแผนไทย";break;//300
+                    case "2": bookings[i][3] = "นวดน้ำมัน"; break;//300
+                    case "3": bookings[i][3] = "สปาหน้า"; break;//500
+                    case "4": bookings[i][3] = "อบสมุนไพร"; break;//700
+                    case "5": bookings[i][3] = "อโรม่า"; break;//900
 
-                    default: bookings[i][3] = "ไม่ทราบประเภทบริการ"; break;
-                }
+                    default: bookings[i][3] = "ไม่ทราบประเภทบริการ"; break;   
+                }   // ต้องดึงข้อมูล package ที่ลูกค้าเลือก // dew comment for shange
+
                 System.out.print("ข้อมูลสุขภาพ (เช่น โรคประจำตัว, ตั้งครรภ์, เคยผ่าตัด, ฯลฯ): ");
                 bookings[i][4] = sc.nextLine();
             }

@@ -1,3 +1,4 @@
+//Fasai
 import java.util.Scanner;
     public class Package {
 
@@ -26,7 +27,7 @@ import java.util.Scanner;
             }
         }
 
-        //dew
+        //dew/* 
         public static void payforus(){
             float[] pay = new float[5];
             pay[0] = 300;//นวดแผนไทย
@@ -62,8 +63,11 @@ import java.util.Scanner;
                 System.out.print("วันและเวลาใช้บริการ (ตัวอย่าง 16-10-2568 12:00 *โปรดพิมพ์ตามตัวอย่างเท่านั้น*): ");
                 bookings[i][2] = sc.nextLine();
 
+
+                
                 //เรียกเมธอดแสดงเมนูบริการ
                 showServiceMenu();
+                
                 System.out.print("เลือกหมายเลขบริการ (1-5): ");
                 String choice = sc.nextLine();
                 //แปลงตัวเลขเป็นชื่อบริการ
@@ -75,11 +79,15 @@ import java.util.Scanner;
                     case "5": bookings[i][3] = "อโรม่า"; break;//900
 
                     default: bookings[i][3] = "ไม่ทราบประเภทบริการ"; break;   
-                }   // ต้องดึงข้อมูล package ที่ลูกค้าเลือก // dew comment for shange
+                } 
+                sc.nextLine(); 
+            
+            
 
                 System.out.print("ข้อมูลสุขภาพ (เช่น โรคประจำตัว, ตั้งครรภ์, เคยผ่าตัด, ฯลฯ): ");
                 bookings[i][4] = sc.nextLine();
             }
+        
             //แสดงข้อมูลทั้งหมดจ้า
             showAllBookings(bookings);
         }

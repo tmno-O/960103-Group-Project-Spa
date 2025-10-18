@@ -1,8 +1,6 @@
-//Kit
-
 import java.util.Scanner;
 
-public class employee {
+public class employee {  //Kit
 
     // --- Data Definition (Class-level constants/fields) ---
     private static final int[][] EMPLOYEE_SHIFTS = {

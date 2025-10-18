@@ -1,14 +1,72 @@
 //Dew
+
+import java.util.Scanner;
+
 public class Main{
-    public static void show_Menu(){
-        Spa showSpa = new Spa();  // การสร้าง object ขึ้นมาเพื่อดึงข้อมูลมาจากโค้ดของเพื่อน//
-        Package showPack = new Package();
-        employee showEmp = new employee();
-        Bill shoBill= new Bill();
-        /*1System.out.println(showSpa);*/
-        System.out.println(showPack);
-        System.out.println(showEmp);
-        System.out.println(shoBill);
-    
+    public static void show_Id(){
+         Scanner input = new Scanner(System.in);
+        // Variable
+        int max_user_id = 0;
+        // User Array
+        int[] user_id = new int[10000];
+        String[] user_name = new String[10000];
+        String[] user_phone_number = new String[10000];
+        String[] user_email = new String[10000];
+        int input_int;
+        String input_String;
+        boolean op = true;
+        while (op) {
+            System.out.println("--------------- [ Command Menu ] ---------------");
+            System.out.println("Enter [ 1 ] to add new user");
+            System.out.println("Enter [ 2 ] to edit user usage");
+            System.out.println("Enter [ 3 ] to calculate service charge");
+            System.out.println("Enter [ 4 ] to exit this program");
+            System.out.print("Enter number here : ");
+            input_int = input.nextInt();
+            if (input_int == 5) {
+                System.out.print("Goodbye :)");
+                break;
+            }
+            if (input_int < 0 || input_int > 5) {
+                System.out.print("Error : You input the wrong number");
+                System.out.print("Please try again ..");
+                continue;
+            }
+            if (input_int == 1) {
+                System.out.println("--------------- [ Add New User ] ---------------");
+                System.out.print("User ID : "+max_user_id);
+                user_id[max_user_id] = max_user_id;
+                System.out.print("Enter user name : ");
+                user_name[max_user_id] = input.next();
+                System.out.print("Enter user phone number :");
+                user_phone_number[max_user_id] = input.next();
+                System.out.print("Enter user email : ");
+                user_email[max_user_id] = input.next();
+                System.out.print("");
+                System.out.println("[ ! ] User Information");
+                System.out.println("User id : "+max_user_id);
+                System.out.println("User name : "+user_name[max_user_id]);
+                System.out.println("User phone number : "+user_phone_number[max_user_id]);
+                System.out.println("User email address : "+user_email[max_user_id]);
+                System.out.println("");
+                System.out.println("Confirm this information ?");
+                System.out.println("Enter [ Y ] to confirm is information");
+                System.out.println("Enter [ N ] to cancel");
+                input_String = input.next();
+                input_String = input_String.toUpperCase();
+                if (input_String.equals("N")) {
+                    System.out.println("All user information removed");
+                    user_name[max_user_id] = "";
+                    user_phone_number[max_user_id] = "";
+                    user_email[max_user_id] = "";
+                    continue;
+                }
+                if (input_String.equals("Y")) {
+                    System.out.println("All user information saved at user id "+max_user_id);
+                    max_user_id += 1;
+                    op = false;
+                }
+            }
+        }
     }
 }

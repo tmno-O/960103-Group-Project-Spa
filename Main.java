@@ -14,14 +14,6 @@ public class Main{
 
     //TON//
     public static void show_Id(){
-<<<<<<< HEAD
-<<<<<<< HEAD
-        Scanner input = new Scanner(System.in);
-=======
-         Scanner input = new Scanner(System.in);
->>>>>>> 21252789dc621deecff1dda34a4cfb94f3694698
-=======
->>>>>>> c6eab906a127ba396f23d5f4d3d0fe4cc489ebb6
         // Variable
         int max_user_id = 0;
         // User Array
@@ -94,6 +86,7 @@ public class Main{
 
                     
                 }
+<<<<<<< HEAD
         }
     }
     public static void showServiceMenu() {
@@ -133,6 +126,9 @@ public class Main{
     }
 }
 =======
+=======
+            }
+>>>>>>> 4fb6523760e4f285073356f46fd2d06823849284
 
         }
     }//TON//
@@ -279,4 +275,13 @@ public class Main{
         show_Id();
         Package();
         Employee();
+<<<<<<< HEAD
     }//DEW//
+=======
+
+    }
+    //DEW//
+//
+
+}
+>>>>>>> 4fb6523760e4f285073356f46fd2d06823849284

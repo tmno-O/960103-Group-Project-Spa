@@ -1,5 +1,6 @@
-/*import java.util.Scanner;*/
 /* 
+import java.util.Scanner;
+ 
 public class employee {  //Kit
 
     // --- Data Definition (Class-level constants/fields) ---

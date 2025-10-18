@@ -1,10 +1,11 @@
-/*
-import java.util.Locale;
+
+
 import java.util.Scanner;
 public class Spa {
+    public static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
         // Scanner
-        Scanner input = new Scanner(System.in);
+        
         // Variable
         int max_user_id = 0;
         // User Array
@@ -13,14 +14,14 @@ public class Spa {
         String[] user_phone_number = new String[10000];
         String[] user_email = new String[10000];
         // Service List
-        String[] spa_service_list  =  {"นวดแผนไทย","นวดน้ำมัน","นวดประคบสมุนไพร","ซาวหน้า","อบสมุนไพร","อโรม่า","นวดหลัง","นวดเท้า","สปาหน้า"};
+       /*  String[] spa_service_list  =  {"นวดแผนไทย","นวดน้ำมัน","นวดประคบสมุนไพร","ซาวหน้า","อบสมุนไพร","อโรม่า","นวดหลัง","นวดเท้า","สปาหน้า"};
         int[] spa_service_price = {100,100,100,100,100,100,100,100,100};
-        int[] spa_service_income_record = {0,0,0,0,0,0,0,0,0};
+        int[] spa_service_income_record = {0,0,0,0,0,0,0,0,0};*/
         // User useage
-        int[][] user_usage = new int[9][10000];
-        // Input Variable
+        /*int[][] user_usage = new int[9][10000];*/
+        // Input Variable */
         int input_int;
-        double input_double;
+        /*double input_double;*/
         String input_String;
 
         while (true) {
@@ -78,4 +79,3 @@ public class Spa {
         }
     }
 }
-*/

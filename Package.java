@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Package {
 
-    //ไว้แสดงเมนูบริการให้เลือก //fasai
+    //ไว้แสดงเมนูบริการให้เลือก 
     public static void showServiceMenu() {
         System.out.println("\n----- เมนูบริการในสปา -----");
         System.out.println("1. นวดแผนไทย 300 ต่อชั่วโมง ");

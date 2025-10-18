@@ -3,6 +3,34 @@ import java.util.Scanner;
     public class Package {
 
         //ไว้แสดงเมนูบริการให้เลือก //fasai
+        public static void ServiceMenu() {
+            System.out.println("\n----- เมนูบริการใน -----");
+            System.out.println("1.นวดแผนไทย");
+            System.out.println("2.นวดน้ำมัน");
+            System.out.println("3.สปาหน้า");
+            System.out.println("4.อบสมุนไพร");
+            System.out.println("5.อโรม่า");
+            System.out.println("-------------------------");
+        }
+
+        //ไว้แสดงข้อมูลการจองทั้งหมดจ้า อิอิ  //fasai
+        public static void IdBookings(String[][] bookings) {
+            System.out.println("\n===== ข้อมูลการจองทั้งหมด =====");
+            for (int i = 0; i < bookings.length; i++) {
+                System.out.println("ข้อมูลการจอง " + (i + 1));
+                System.out.println("ชื่อ-นามสกุล: " + bookings[i][0]);
+                System.out.println("เบอร์โทรศัพท์: " + bookings[i][1]);
+                System.out.println("วันและเวลา: " + bookings[i][2]);
+                System.out.println("ประเภทบริการ: " + bookings[i][3]);
+                System.out.println("ข้อมูลสุขภาพ: " + bookings[i][4]);
+                System.out.println("------------------------------");
+            }
+        }
+
+
+        //fasai
+        
+        //ไว้แสดงเมนูบริการให้เลือก //fasai
         public static void showServiceMenu() {
             System.out.println("\n----- เมนูบริการใน -----");
             System.out.println("1.นวดแผนไทย");
@@ -81,4 +109,7 @@ import java.util.Scanner;
             //แสดงข้อมูลทั้งหมดจ้า
             showAllBookings(bookings);
         }
-    }
+    
+
+
+}

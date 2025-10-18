@@ -94,8 +94,6 @@ public class Main{
 
                     
                 }
-            }
-<<<<<<< HEAD
         }
     }
     public static void showServiceMenu() {
@@ -281,9 +279,4 @@ public class Main{
         show_Id();
         Package();
         Employee();
-
-    }
-    //DEW//
-//
-}
->>>>>>> 21252789dc621deecff1dda34a4cfb94f3694698
+    }//DEW//

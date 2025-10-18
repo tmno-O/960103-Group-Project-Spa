@@ -7,13 +7,13 @@ public class Main{
     public static String keepPackage = "";
     public static int userNum = 1;
     public static String[][] AllUserId = new String[userNum][4];
+    public static Scanner sc = new Scanner(System.in);
 
 
     //DEW//
 
     //TON//
     public static void show_Id(){
-         Scanner input = new Scanner(System.in);
         // Variable
         int max_user_id = 0;
         // User Array
@@ -31,7 +31,7 @@ public class Main{
             System.out.println("ใส่ค่า [ 3 ] คำนวนบิล");
             System.out.println("ใส่ค่า [ 4 ] ออกจากโปรแกรม");
             System.out.print("Enter number here : ");
-            input_int = input.nextInt();
+            input_int = sc.nextInt();
             if (input_int == 4) {
                 System.out.print("Goodbye :)");
                 break;
@@ -46,11 +46,11 @@ public class Main{
                 System.out.print("User ID : "+max_user_id);
                 user_id[max_user_id] = max_user_id;
                 System.out.print("Enter user name : ");
-                user_name[max_user_id] = input.next();
+                user_name[max_user_id] = sc.next();
                 System.out.print("Enter user phone number :");
-                user_phone_number[max_user_id] = input.next();
+                user_phone_number[max_user_id] = sc.next();
                 System.out.print("Enter user email : ");
-                user_email[max_user_id] = input.next();
+                user_email[max_user_id] = sc.next();
                 System.out.print("");
                 System.out.println("[ ! ] User Information");
                 System.out.println("User id : "+max_user_id);
@@ -61,7 +61,7 @@ public class Main{
                 System.out.println("Confirm this information ?");
                 System.out.println("Enter [ Y ] to confirm is information");
                 System.out.println("Enter [ N ] to cancel");
-                input_String = input.next();
+                input_String = sc.next();
                 input_String = input_String.toUpperCase();
                 if (input_String.equals("N")) {
                     System.out.println("All user information removed");
@@ -104,7 +104,6 @@ public class Main{
     // --- End Data Definition ---
 
      public static void Employee() {//KIT//
-        Scanner sc = new Scanner(System.in);
         boolean op = true;
         System.out.println("ระบบจองเวลานวด (Massage Booking System)");
         
@@ -185,7 +184,7 @@ public class Main{
         double[]priceSet = {600,700,900};
         double[]pricePac = {300,300,700,900,200,100,500};
         int choice = 0, num = 0;
-        Scanner sc = new Scanner(System.in);
+        
         boolean condition = true;
 
         while (condition) {

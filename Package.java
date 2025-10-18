@@ -1,5 +1,5 @@
 //Fasai
-/*
+
 import java.util.Scanner;
     public class Package {
 
@@ -113,4 +113,4 @@ import java.util.Scanner;
     
 
 
-}*/
+}

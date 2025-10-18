@@ -16,7 +16,7 @@ public class Main{
     //TON//
     public static void show_Id(){
         // Scanner
-        Scanner input = new Scanner(System.in);
+        //Scanner input = new Scanner(System.in);
         // Variable
         int max_user_id = 0;
 
@@ -30,37 +30,39 @@ public class Main{
 
         // Input Variable
         int input_int;
-        double input_double;
+       // double input_double;
         String input_String;
-
-        while (true) {
+        boolean op = true;
+        while (op) {
             System.out.println("--------------- [ Command Menu ] ---------------");
             System.out.println("Enter [ 1 ] to add new user");
             System.out.println("Enter [ 2 ] to add user usage");
             System.out.println("Enter [ 3 ] to calculate service charge");
             System.out.println("Enter [ 0 ] to exit this program");
             System.out.print("Enter number here : ");
-            input_int = input.nextInt();
+            input_int = sc.nextInt();
             if (input_int == 0) {
                 System.out.print("Goodbye :)");
                 break;
             }
+            
             if (input_int < 0 || input_int > 5) {
                 System.out.print("Error : You input the wrong number");
                 System.out.print("Please try again ..");
                 continue;
             }
+            
             // เพิ่ม user ใหม่
             if (input_int == 1) {
                 System.out.println("--------------- [ Add New User ] ---------------");
                 System.out.print("User ID : "+max_user_id);
                 user_id[max_user_id] = max_user_id;
                 System.out.print("Enter user name : ");
-                user_name[max_user_id] = input.next();
+                user_name[max_user_id] = sc.next();
                 System.out.print("Enter user phone number :");
-                user_phone_number[max_user_id] = input.next();
+                user_phone_number[max_user_id] = sc.next();
                 System.out.print("Enter user email : ");
-                user_email[max_user_id] = input.next();
+                user_email[max_user_id] = sc.next();
                 System.out.print("");
                 System.out.println("[ ! ] User Information");
                 System.out.println("User id : "+max_user_id);
@@ -71,27 +73,40 @@ public class Main{
                 System.out.println("Confirm this information ?");
                 System.out.println("Enter [ Y ] to confirm this information");
                 System.out.println("Enter [ N ] to cancel");
-                input_String = input.next();
-                input_String = input_String.toUpperCase();
-                if (input_String.equals("N")) {
+                input_String = sc.next();
+                input_String = input_String.toUpperCase();//TON//
+
+                userNum = max_user_id;//DEW//
+                AllUserId[userNum][0] = user_name[max_user_id];
+                AllUserId[userNum][1] = user_phone_number[max_user_id];
+                 AllUserId[userNum][2] = user_email[max_user_id];
+                 max_user_id += 1;//DEW//
+
+                if (input_String.equals("N")) {//TON//
                     System.out.println("All user information removed");
                     user_name[max_user_id] = "";
                     user_phone_number[max_user_id] = "";
                     user_email[max_user_id] = "";
-                    continue;
+                    continue;//TON//
+                    
                 }
+                //TON//
                 if (input_String.equals("Y")) {
                     System.out.println("All user information saved at user id "+max_user_id);
-                    max_user_id += 1;
-                    continue;
-                }
-            }
 
+                    max_user_id += 1;//DEW//
+                    op = false;//DEW//
+                    
+                    
+                }
+
+            }
+            //TON//
             // เพิ่มการใช้งานของ user
             if (input_int == 2) {
                 System.out.println("--------------- [ Add User Usage ] ---------------");
                 System.out.print("Enter user id : ");
-                input_int = input.nextInt();
+                input_int = sc.nextInt();
                 int selected_user_id = input_int;
                 System.out.println("You selected user id : "+input_int);
                 if (user_name[input_int].equals("") && user_email[input_int].equals("") && user_phone_number[input_int].equals("")) {
@@ -102,7 +117,7 @@ public class Main{
                     System.out.print("Email : "+user_email[input_int]+"\n");
                     System.out.print("Phone : "+user_phone_number[input_int]+"\n");
                     System.out.print("Confirm this information ? \nEnter [ Y ] to confirm this information\nEnter [ N ] to cancle\nEnter ( Y or N ) here : ");
-                    input_String = input.next();
+                    input_String = sc.next();
                     if (input_String.equals("N")) {
                         System.out.println("Okay...Back to home");
                     }
@@ -111,7 +126,7 @@ public class Main{
                             System.out.println("[ Edit User Usage Menu ]");
                             System.out.print("Enter 1 to add Thai massage 1 time\nEnter 2 to add Oil massage 1 time\nEnter 3 to add Herbal compress massage 1 time\nEnter 4 to add Facical sauna 1 time\nEnter 5 to add Herbal steam 1 time\nEnter 6 to add Aromatherapy 1 time\nEnter 7 to add Back massage\nEnter 8 to add Foot massage 1 time\nEnter 9 to add Facial spa 1 time\n");
                             System.out.print("Enter number here : ");
-                            input_int = input.nextInt();
+                            input_int = sc.nextInt();
                             if (input_int > 0 && input_int < 10) {
                                 user_usage[input_int - 1][selected_user_id] += 1;
                                 if (input_int == 1) {
@@ -147,7 +162,7 @@ public class Main{
                             System.out.println("Do you want to do again ?");
                             System.out.println("Enter [ Y ] to do again");
                             System.out.println("Enter [ N ] to exit to home");
-                            input_String = input.next();
+                            input_String = sc.next();
                             if (input_String.equals("Y")) {
                                 System.out.println("Okay..");
                             }
@@ -159,63 +174,61 @@ public class Main{
                     }
                 }
             }
+            
         }
     }//TON//
-
-
-    //KIT//
-    // --- Data Definition (Class-level constants/fields) ---
+////////////////////////
+  // --- Data Definition (Class-level constants/fields) ---
     private static final int[][] EMPLOYEE_SHIFTS = {
-            {1, 8, 12, 0}, // ID 1: 8 AM - 12 PM (Available hours: 8, 9, 10, 11)
-            {2, 12, 16, 0}, // ID 2: 12 PM - 4 PM (Available hours: 12, 13, 14, 15)
-            {3, 16, 20, 0}  // ID 3: 4 PM - 8 PM (Available hours: 16, 17, 18, 19)
+        {1, 8, 12, 0}, // ID 1: 8 AM - 12 PM (Available hours: 8, 9, 10, 11)
+        {2, 12, 16, 0}, // ID 2: 12 PM - 4 PM (Available hours: 12, 13, 14, 15)
+        {3, 16, 20, 0}  // ID 3: 4 PM - 8 PM (Available hours: 16, 17, 18, 19)
     };
     private static final String[] STAFF_NAMES = {"A", "B", "C"};
     private static boolean[][] booked = new boolean[EMPLOYEE_SHIFTS.length][24];
     // --- End Data Definition ---
 
-    public static void Employee() {//KIT//
+    public static void Employee() { //KIT//
         boolean op = true;
         System.out.println("ระบบจองเวลานวด (Massage Booking System)");
-
+        
         // The main booking loop
         while (op) {
             System.out.print("\nกรอกเวลาที่ต้องการนวด (8-20) นาฬิกา : ");
-            int hour = sc.nextInt();
-
             if (!sc.hasNextInt()) {
                 System.out.println("❌ กรุณาใส่เฉพาะตัวเลขชั่วโมงเท่านั้น (8-20)");
                 sc.next(); // Consume the invalid input
                 continue;
             }
+            int hour = sc.nextInt();
+
             if (hour < 8 || hour > 20) {
                 System.out.println("❌ กรุณาใส่ชั่วโมงให้อยู่ในช่วง 8 ถึง 20 นาฬิกา");
                 continue;
-            }//KIT//
-
-            //DEW//
-            if(hour > 8 || hour < 20) {
-                AllBooking[userNum][0]=userNum;
-                AllBooking[userNum][1]= hour;
-                op = false;
-            }//DEW//
+            }
 
             // Call the method to process the booking
             processBooking(hour);
+            //KIT//
+
+            //DEW//
+            AllBooking[userNum][0]=userNum;
+            AllBooking[userNum][1]= hour;
+            op = false;
+            //DEW//
         }
     }
 
-
-    /**
+    /*
      * Finds the index of the employee who is working during the specified hour.
      * * @param hour The requested hour (0-23).
      * @return The employee index (0, 1, or 2), or -1 if no one is working.
      */
-    public static int findWorkingEmployeeIndex(int hour) {//KIT//
+    public static int findWorkingEmployeeIndex(int hour) { //KIT//
         for (int i = 0; i < EMPLOYEE_SHIFTS.length; i++) {
             int start = EMPLOYEE_SHIFTS[i][1]; // Shift Start
             int end = EMPLOYEE_SHIFTS[i][2];   // Shift End
-
+            
             // Check if the hour falls within the shift (Start <= hour < End)
             if (hour >= start && hour < end) {
                 return i; // Return the index of the working employee
@@ -228,7 +241,7 @@ public class Main{
      * Attempts to book the massage for the given hour and prints the result.
      * * @param hour The requested hour for the booking.
      */
-    public static void processBooking(int hour) {//KIT//
+    public static void processBooking(int hour) { //KIT//
         int checkindex = findWorkingEmployeeIndex(hour);
 
         if (checkindex == -1) {
@@ -238,16 +251,16 @@ public class Main{
             if (!booked[checkindex][hour]) {
                 // Booking successful
                 booked[checkindex][hour] = true;
-                System.out.println("✅ จองสำเร็จ! หมอ " + STAFF_NAMES[checkindex] +
-                        " (ID " + EMPLOYEE_SHIFTS[checkindex][0] +
-                        ") เวลา " + hour + " โมง");
-
+                System.out.println("✅ จองสำเร็จ! หมอ " + STAFF_NAMES[checkindex] + 
+                                   " (ID " + EMPLOYEE_SHIFTS[checkindex][0] + 
+                                   ") เวลา " + hour + " โมง");
             } else {
                 // Already booked
                 System.out.println("⛔ เวลา " + hour + " โมง หมอ " + STAFF_NAMES[checkindex] + " ไม่ว่างแล้ว");
-            }
+            }//
         }
     } //KIT//
+   
 
     //fasai//
     public static void Package(){

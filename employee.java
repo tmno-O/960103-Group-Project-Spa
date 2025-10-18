@@ -1,4 +1,4 @@
-/* 
+ 
 import java.util.Scanner;
  
 public class employee {  //Kit
@@ -38,11 +38,11 @@ public class employee {  //Kit
         }
     }
 
-    /**
+    /*
      * Finds the index of the employee who is working during the specified hour.
      * * @param hour The requested hour (0-23).
      * @return The employee index (0, 1, or 2), or -1 if no one is working.
-     *//* 
+     */
     public static int findWorkingEmployeeIndex(int hour) {
         for (int i = 0; i < EMPLOYEE_SHIFTS.length; i++) {
             int start = EMPLOYEE_SHIFTS[i][1]; // Shift Start
@@ -59,7 +59,7 @@ public class employee {  //Kit
     /**
      * Attempts to book the massage for the given hour and prints the result.
      * * @param hour The requested hour for the booking.
-     *//* 
+     */
     public static void processBooking(int hour) {
         int checkindex = findWorkingEmployeeIndex(hour);
 
@@ -80,4 +80,3 @@ public class employee {  //Kit
         }
     }
 }
-*/

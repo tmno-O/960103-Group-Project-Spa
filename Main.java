@@ -5,12 +5,13 @@ import java.util.Scanner;
 public class Main{
     //DEW//
     public static String keepPackage = "";
-    public static int userNum = 1;
+    public static int userNum = 10000;
     public static String[][] AllUserId = new String[userNum][4];
     public static int[][] AllBooking = new int[userNum][3];
     public static Scanner sc = new Scanner(System.in);
     public static double Price = 0;
     public static boolean stop = true;
+    public static int ID = 0;
     //DEW//
 
     //TON//
@@ -19,7 +20,6 @@ public class Main{
         //Scanner input = new Scanner(System.in);
         // Variable
         int max_user_id = 0;
-
         // User Array
         int[] user_id = new int[10000];
         String[] user_name = new String[10000];
@@ -55,8 +55,8 @@ public class Main{
             // เพิ่ม user ใหม่
             if (input_int == 1) {
                 System.out.println("--------------- [ Add New User ] ---------------");
-                System.out.print("User ID : "+max_user_id);
-                user_id[max_user_id] = max_user_id;
+                System.out.print("User ID : "+userNum);
+                user_id[max_user_id] = userNum;
                 System.out.print("Enter user name : ");
                 user_name[max_user_id] = sc.next();
                 System.out.print("Enter user phone number :");
@@ -327,17 +327,12 @@ public class Main{
 
     //DEW//
     public static void Bill(){
-        AllUserId[0][0] = "ID ลูกค้า : ";
-        AllUserId[0][1] = "ชื่อลูกค้า : ";
-        AllUserId[0][2] = "เบอร์โทร : ";
-        AllUserId[0][3] = "Email : ";
 
         System.out.println("--------------- [ Command Total ] ---------------");
-        System.out.println(AllUserId[0][0]+ userNum);
-        System.out.println(AllUserId[0][1] + AllUserId[userNum][0] );
-        System.out.println(AllUserId[0][2] + AllUserId[userNum][1] );
-        System.out.println(AllUserId[0][3] + AllUserId[userNum][2] );
-        System.out.println(AllUserId[0][0] + AllUserId[userNum][1] );
+        System.out.println("ID : "+ ID);
+        System.out.println("ชื่อลูกค้า : " + AllUserId[userNum][0] );
+        System.out.println("เบอร์โทร : " + AllUserId[userNum][1] );
+        System.out.println("Email : "+ AllUserId[userNum][2] );
         System.out.println(keepPackage);
         System.out.println("Total : "+Price);
         System.out.println("-------------------- [ end ] ----------------------");
@@ -346,6 +341,7 @@ public class Main{
 
     //DEW//
     public static void main(String[]args){
+        userNum = 1;
         while (stop) {
             show_Id();
             if(stop == false){
@@ -353,6 +349,7 @@ public class Main{
             }
             Package();
             Employee();
+            ID += 1;
             Bill();
             userNum++;
         }

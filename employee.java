@@ -75,7 +75,7 @@ public class employee {  //Kit
             } else {
                 // Already booked
                 System.out.println("⛔ เวลา " + hour + " โมง หมอ " + STAFF_NAMES[checkindex] + " ไม่ว่างแล้ว");
-            }
+            }//
         }
     }
 }

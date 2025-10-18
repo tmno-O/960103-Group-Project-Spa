@@ -28,16 +28,20 @@ public class Main{
         // colum 1 = นวดแผนไทย 2 = นวดน้ำมัน 3 = นวดประคบสมุนไพร 4.ซาวหน้า 5.อบสมุนไพร 6.อโรม่า 7.นวดหลัง 8.นวดเท้า 9.สปาหน้า
         int[][] user_usage = new int[9][10000];
 
+
+        // Display user usage
+
+
         // Input Variable
         int input_int;
-       // double input_double;
+        // double input_double;
         String input_String;
         boolean op = true;
         while (op) {
             System.out.println("--------------- [ Command Menu ] ---------------");
             System.out.println("Enter [ 1 ] to add new user");
             System.out.println("Enter [ 2 ] to add user usage");
-            System.out.println("Enter [ 3 ] to calculate service charge");
+            System.out.println("Enter [ 3 ] to display user usage");
             System.out.println("Enter [ 0 ] to exit this program");
             System.out.print("Enter number here : ");
             input_int = sc.nextInt();
@@ -45,13 +49,13 @@ public class Main{
                 System.out.print("Goodbye :)");
                 break;
             }
-            
+
             if (input_int < 0 || input_int > 5) {
                 System.out.print("Error : You input the wrong number");
                 System.out.print("Please try again ..");
                 continue;
             }
-            
+
             // เพิ่ม user ใหม่
             if (input_int == 1) {
                 System.out.println("--------------- [ Add New User ] ---------------");
@@ -79,8 +83,8 @@ public class Main{
                 userNum = max_user_id;//DEW//
                 AllUserId[userNum][0] = user_name[max_user_id];
                 AllUserId[userNum][1] = user_phone_number[max_user_id];
-                 AllUserId[userNum][2] = user_email[max_user_id];
-                 max_user_id += 1;//DEW//
+                AllUserId[userNum][2] = user_email[max_user_id];
+                max_user_id += 1;//DEW//
 
                 if (input_String.equals("N")) {//TON//
                     System.out.println("All user information removed");
@@ -88,19 +92,20 @@ public class Main{
                     user_phone_number[max_user_id] = "";
                     user_email[max_user_id] = "";
                     continue;//TON//
-                    
+
                 }
                 //TON//
                 if (input_String.equals("Y")) {
                     System.out.println("All user information saved at user id "+max_user_id);
 
                     max_user_id += 1;//DEW//
-                    op = false;//DEW//
-                    
-                    
+//                    op = false;//DEW// ถ้าจะย้ายไป method อื่นให้ user กด 0 ดีกว่านะ
+
+
                 }
 
             }
+
             //TON//
             // เพิ่มการใช้งานของ user
             if (input_int == 2) {
@@ -120,6 +125,7 @@ public class Main{
                     input_String = sc.next();
                     if (input_String.equals("N")) {
                         System.out.println("Okay...Back to home");
+                        break;
                     }
                     while (true) {
                         if (input_String.equals("Y")) {
@@ -174,15 +180,84 @@ public class Main{
                     }
                 }
             }
-            
+            if (input_int == 3) {
+                while (true) {
+                    System.out.print("Enter User ID : ");
+                    input_int = sc.nextInt();
+                    if (user_name[input_int].equals("") || user_email[input_int].equals("") || user_phone_number.equals("")) {
+                        System.out.println("You ented the wrong number !");
+                        System.out.println("Please try again");
+                    } else {
+                        int selected_user_id = input_int;
+                        System.out.println("User Information");
+                        System.out.println("Username : "+user_name[selected_user_id]);
+                        System.out.println("Email : "+user_email[selected_user_id]);
+                        System.out.println("Phone : "+user_phone_number[selected_user_id]);
+                        System.out.println("");
+                        System.out.print("Confirm this information ? \nEnter [ Y ] to confirm this information\nEnter [ N ] to cancle\nEnter ( Y or N ) here : ");
+                        input_String = sc.next();
+                        if (!input_String.equals("Y") || !input_String.equals("N")) {
+                            System.out.println("You ented the wrong number");
+                            System.out.println("Please try again");
+                        }
+                        if (input_String.equals("N")) {
+                            System.out.println("Okay....");
+                            break;
+                        }
+                        if (input_String.equals("Y")) {
+                            int selected_user_usage_total = 0;
+                            for (int i = 0; i < 9; i++) {
+                                if (i == 0) {
+                                    System.out.println("Thai massage "+user_usage[i][selected_user_id]+" times");
+                                    selected_user_usage_total += user_usage[i][selected_user_id];
+                                }
+                                if (i == 1) {
+                                    System.out.println("Thai massage "+user_usage[i][selected_user_id]+" times");
+                                    selected_user_usage_total += user_usage[i][selected_user_id];
+                                }
+                                if (i == 2) {
+                                    System.out.println("Thai massage "+user_usage[i][selected_user_id]+" times");
+                                    selected_user_usage_total += user_usage[i][selected_user_id];
+                                }
+                                if (i == 3) {
+                                    System.out.println("Thai massage "+user_usage[i][selected_user_id]+" times");
+                                    selected_user_usage_total += user_usage[i][selected_user_id];
+                                }
+                                if (i == 4) {
+                                    System.out.println("Thai massage "+user_usage[i][selected_user_id]+" times");
+                                    selected_user_usage_total += user_usage[i][selected_user_id];
+                                }
+                                if (i == 5) {
+                                    System.out.println("Thai massage "+user_usage[i][selected_user_id]+" times");
+                                    selected_user_usage_total += user_usage[i][selected_user_id];
+                                }
+                                if (i == 6) {
+                                    System.out.println("Thai massage "+user_usage[i][selected_user_id]+" times");
+                                    selected_user_usage_total += user_usage[i][selected_user_id];
+                                }
+                                if (i == 7) {
+                                    System.out.println("Thai massage "+user_usage[i][selected_user_id]+" times");
+                                    selected_user_usage_total += user_usage[i][selected_user_id];
+                                }
+                                if (i == 8) {
+                                    System.out.println("Thai massage "+user_usage[i][selected_user_id]+" times");
+                                    selected_user_usage_total += user_usage[i][selected_user_id];
+                                }
+                            }
+                            System.out.println("Total : "+selected_user_usage_total);
+                        }
+                    }
+                }
+            }
         }
-    }//TON//
-////////////////////////
-  // --- Data Definition (Class-level constants/fields) ---
+    }
+    //TON//
+    ////////////////////////
+    // --- Data Definition (Class-level constants/fields) ---
     private static final int[][] EMPLOYEE_SHIFTS = {
-        {1, 8, 12, 0}, // ID 1: 8 AM - 12 PM (Available hours: 8, 9, 10, 11)
-        {2, 12, 16, 0}, // ID 2: 12 PM - 4 PM (Available hours: 12, 13, 14, 15)
-        {3, 16, 20, 0}  // ID 3: 4 PM - 8 PM (Available hours: 16, 17, 18, 19)
+            {1, 8, 12, 0}, // ID 1: 8 AM - 12 PM (Available hours: 8, 9, 10, 11)
+            {2, 12, 16, 0}, // ID 2: 12 PM - 4 PM (Available hours: 12, 13, 14, 15)
+            {3, 16, 20, 0}  // ID 3: 4 PM - 8 PM (Available hours: 16, 17, 18, 19)
     };
     private static final String[] STAFF_NAMES = {"A", "B", "C"};
     private static boolean[][] booked = new boolean[EMPLOYEE_SHIFTS.length][24];
@@ -191,7 +266,7 @@ public class Main{
     public static void Employee() { //KIT//
         boolean op = true;
         System.out.println("ระบบจองเวลานวด (Massage Booking System)");
-        
+
         // The main booking loop
         while (op) {
             System.out.print("\nกรอกเวลาที่ต้องการนวด (8-20) นาฬิกา : ");
@@ -228,7 +303,7 @@ public class Main{
         for (int i = 0; i < EMPLOYEE_SHIFTS.length; i++) {
             int start = EMPLOYEE_SHIFTS[i][1]; // Shift Start
             int end = EMPLOYEE_SHIFTS[i][2];   // Shift End
-            
+
             // Check if the hour falls within the shift (Start <= hour < End)
             if (hour >= start && hour < end) {
                 return i; // Return the index of the working employee
@@ -251,16 +326,16 @@ public class Main{
             if (!booked[checkindex][hour]) {
                 // Booking successful
                 booked[checkindex][hour] = true;
-                System.out.println("✅ จองสำเร็จ! หมอ " + STAFF_NAMES[checkindex] + 
-                                   " (ID " + EMPLOYEE_SHIFTS[checkindex][0] + 
-                                   ") เวลา " + hour + " โมง");
+                System.out.println("✅ จองสำเร็จ! หมอ " + STAFF_NAMES[checkindex] +
+                        " (ID " + EMPLOYEE_SHIFTS[checkindex][0] +
+                        ") เวลา " + hour + " โมง");
             } else {
                 // Already booked
                 System.out.println("⛔ เวลา " + hour + " โมง หมอ " + STAFF_NAMES[checkindex] + " ไม่ว่างแล้ว");
             }//
         }
     } //KIT//
-   
+
 
     //fasai//
     public static void Package(){

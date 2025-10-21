@@ -99,7 +99,8 @@ public class Main{
                     System.out.println("All user information saved at user id "+max_user_id);
 
                     max_user_id += 1;//DEW//
-//                    op = false;//DEW// ถ้าจะย้ายไป method อื่นให้ user กด 0 ดีกว่านะ
+
+//                    op = false;//DEW// ถ้าจะย้ายไป method อื่นให้ user กด 0 ดีกว่านะ  // 
 
 
                 }

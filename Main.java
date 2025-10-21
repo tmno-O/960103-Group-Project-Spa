@@ -15,7 +15,7 @@ public class Main{
     //DEW//
 
     //TON//
-    public static void show_Id(){
+    public static void main(String[]args){
         // Scanner
         //Scanner input = new Scanner(System.in);
         // Variable
@@ -41,8 +41,10 @@ public class Main{
             System.out.println("--------------- [ Command Menu ] ---------------");
             System.out.println("Enter [ 1 ] to add new user");
             System.out.println("Enter [ 2 ] to add user usage");
-            System.out.println("Enter [ 3 ] to display user usage");
-            System.out.println("Enter [ 0 ] to exit this program");
+            System.out.println("Enter [ 3 ] to display user usage");//ton
+            System.out.println("Enter [ 4 ] to booking service ");//dew
+            System.out.println("Enter [ 5 ] to calculate service charge");//dew
+            System.out.println("Enter [ 0 ] to exit this program");//ton
             System.out.print("Enter number here : ");
             input_int = sc.nextInt();
             if (input_int == 0) {
@@ -246,11 +248,23 @@ public class Main{
                                 }
                             }
                             System.out.println("Total : "+selected_user_usage_total);
-                        }
+                        }//ton
                     }
                 }
+
             }
+            //dew
+            if (input_int == 4) {
+                Package();
+                Employee();
+                continue;
+            }
+            if (input_int == 4) {
+                Bill();
+                continue;
+            }//dew
         }
+
     }
     //TON//
     ////////////////////////
@@ -415,23 +429,7 @@ public class Main{
     }//DEW//
 
 
-    //DEW//
-    public static void main(String[]args){
-        userNum = 1;
-        while (stop) {
-            show_Id();
-            if(stop == false){
-                break;
-            }
-            Package();
-            Employee();
-            ID += 1;
-            Bill();
-            userNum++;
-        }
-
-    }
-    //DEW//
+  
 //
 
 }

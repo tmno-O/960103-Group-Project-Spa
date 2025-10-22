@@ -11,9 +11,9 @@ public class Main{
     public static Scanner sc = new Scanner(System.in);
     public static double Price = 0;
     public static boolean stop = true;
-    public static int ID = 0;
-    public static int checkUserId= 0;
-    //DEW//
+    //public static int ID = 0;//dew
+    public static int checkUserId= 0;//ton 
+    
 
     //TON//
     public static void main(String[]args){
@@ -40,7 +40,7 @@ public class Main{
         boolean op = true;
         userNum = 1;
         while (op) {
-            System.out.println("--------------- [ Command Menu ] ---------------");
+            System.out.println("\n--------------- [ Command Menu ] ---------------\n");
             System.out.println("Enter [ 1 ] to add new user");
             System.out.println("Enter [ 2 ] to add user usage");
             //System.out.println("Enter [ 3 ] to display user usage");//ton
@@ -73,7 +73,7 @@ public class Main{
             // เพิ่ม user ใหม่
             if (input_int == 1) {
                 checkUserId = 1;
-                System.out.println("--------------- [ Add New User ] ---------------");
+                System.out.println("\n--------------- [ Add New User ] ---------------\n");
                 System.out.println("User ID : "+max_user_id);
                 user_id[max_user_id] = max_user_id;//ton
                 userNum = max_user_id;//dew
@@ -128,7 +128,7 @@ public class Main{
             //TON//
             // เพิ่มการใช้งานของ user
             if (input_int == 2) {
-                System.out.println("--------------- [ Add User Usage ] ---------------");
+                System.out.println("\n--------------- [ Add User Usage ] ---------------\n");
                 System.out.print("Enter user id : ");
                 input_int = sc.nextInt(); 
                 userNum = input_int;
@@ -143,7 +143,7 @@ public class Main{
                     sc.nextInt();
                     continue;
                 } else {
-                    System.out.print("Username : "+user_name[input_int]+"\n");
+                    System.out.print("\nUsername : "+user_name[input_int]+"\n");
                     System.out.print("Email : "+user_email[input_int]+"\n");
                     System.out.print("Phone : "+user_phone_number[input_int]+"\n");
 
@@ -199,7 +199,7 @@ public class Main{
                             }*/
                             Package();
                             Employee();
-                            System.out.println("Do you want to do again ?");
+                            System.out.println("\nDo you want to do again ?");
                             System.out.println("Enter [ Y ] to do again");
                             System.out.println("Enter [ N ] to exit to home");
                             input_String = sc.next();
@@ -326,34 +326,30 @@ public class Main{
 
      //KIT//
     public static void Employee() { //KIT//
-        boolean op = true;
+        //boolean op = true;
         System.out.println("ระบบจองเวลานวด (Massage Booking System)");
 
         // The main booking loop
-        while (op) {
+        //while (op) {
             System.out.print("\nกรอกเวลาที่ต้องการนวด (8-20) นาฬิกา : ");
             if (!sc.hasNextInt()) {
                 System.out.println("❌ กรุณาใส่เฉพาะตัวเลขชั่วโมงเท่านั้น (8-20)");
                 sc.next(); // Consume the invalid input
-                continue;
+                //continue;
             }
             int hour = sc.nextInt();
 
             if (hour < 8 || hour > 20) {
                 System.out.println("❌ กรุณาใส่ชั่วโมงให้อยู่ในช่วง 8 ถึง 20 นาฬิกา");
-                continue;
+                //continue;
             }
 
             // Call the method to process the booking
             processBooking(hour);
             //KIT//
 
-            //DEW//
-            AllBooking[userNum][0]=userNum;
-            AllBooking[userNum][1]= hour;
-            op = false;
-            //DEW//
-        }
+           
+        //}
     }
 
     /*
@@ -391,6 +387,14 @@ public class Main{
                 System.out.println("✅ จองสำเร็จ! หมอ " + STAFF_NAMES[checkindex] +
                         " (ID " + EMPLOYEE_SHIFTS[checkindex][0] +
                         ") เวลา " + hour + " โมง");
+                        //kit//
+
+                         //DEW//
+                        AllBooking[userNum][0]=userNum;
+                        AllBooking[userNum][1]= hour;
+                        //DEW//
+                        
+                        //kit//
             } else {
                 // Already booked
                 System.out.println("⛔ เวลา " + hour + " โมง หมอ " + STAFF_NAMES[checkindex] + " ไม่ว่างแล้ว");
@@ -422,7 +426,7 @@ public class Main{
                 System.out.println("'มีข้อผิดพลาดกรุณาใส่หมายเลขอีกครั้ง'");
             }
             if(num ==1){
-                System.out.println("หมายเลขบริการ แบบ Set package");
+                System.out.println("\nหมายเลขบริการ แบบ Set package");
                 for(int i=0;i< bookingsSet.length;i++){
                     System.out.println("[ "+(i+1)+" ] : "+bookingsSet[i] + " : ราคา "+priceSet[i]+" บาท");
                 }
@@ -441,7 +445,7 @@ public class Main{
                 System.out.print("เลือกจำนวน Package :");
                 n2 = sc.nextInt();
                 for(int i=0;i<n2;i++){
-                    System.out.println("หมายเลขบริการ แบบ Package");
+                    System.out.println("\nsหมายเลขบริการ แบบ Package");
                     for(int j=0;j< bookingsPac.length;j++){
                         System.out.println("[ "+(j+1)+" ] : "+bookingsPac[j] + " : ราคา "+pricePac[j]+" บาท");
                     }
@@ -473,14 +477,17 @@ public class Main{
             System.out.println("Enter user Email  :");
             AllUserId[userNum][2] = sc.next();
         }*/
-        System.out.println("ID : "+ ID);
+        System.out.println("ID : "+ userNum);
         System.out.println("Name : " + AllUserId[userNum][0] );
         System.out.println("Phone number : " + AllUserId[userNum][1] );
         System.out.println("Email : "+ AllUserId[userNum][2] );
+        System.out.println("Time : "+ AllBooking[userNum][1] );
+        // 
         System.out.println(keepPackage);
         System.out.println("Total : "+Price);
         System.out.println("-------------------- [ end ] ----------------------");
         userNum ++;
+        Price = 0;
         keepPackage = "";
     }//DEW//
 

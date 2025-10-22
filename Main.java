@@ -12,6 +12,7 @@ public class Main{
     public static double Price = 0;
     public static boolean stop = true;
     public static int ID = 0;
+    public static int checkUserId= 0;
     //DEW//
 
     //TON//
@@ -37,22 +38,33 @@ public class Main{
         // double input_double;
         String input_String;
         boolean op = true;
+        userNum = 1;
         while (op) {
             System.out.println("--------------- [ Command Menu ] ---------------");
             System.out.println("Enter [ 1 ] to add new user");
             System.out.println("Enter [ 2 ] to add user usage");
-            System.out.println("Enter [ 3 ] to display user usage");//ton
-            System.out.println("Enter [ 4 ] to booking service ");//dew
-            System.out.println("Enter [ 5 ] to calculate service charge");//dew
+            //System.out.println("Enter [ 3 ] to display user usage");//ton
+            System.out.println("Enter [ 3 ] to booking service ");//dew
+            System.out.println("Enter [ 4 ] to calculate service charge");//dew
             System.out.println("Enter [ 0 ] to exit this program");//ton
             System.out.print("Enter number here : ");
+            
+            //dew
+            while(!sc.hasNextInt()){//ถ้าไม่ป้อนตัวเลขบังคับให้ใส่เลขใหม่ (: (: (:
+                System.out.println("Error : You input wrong!!!");
+                System.out.println("Please try again ..");
+                sc.next(); // ล้างค่าที่ป้อนไม่ใช่ตัวเลขไม่งั้นมันจะทำงานไม่ได้   ******
+                System.out.print("Enter number here : ");
+                
+            }//dew
             input_int = sc.nextInt();
+                
             if (input_int == 0) {
                 System.out.print("Goodbye :)");
-                break;
+                continue;
             }
 
-            if (input_int < 0 || input_int > 5) {
+            if (input_int < 0 && input_int > 4) {
                 System.out.print("Error : You input the wrong number");
                 System.out.print("Please try again ..");
                 continue;
@@ -60,10 +72,12 @@ public class Main{
 
             // เพิ่ม user ใหม่
             if (input_int == 1) {
+                checkUserId = 1;
                 System.out.println("--------------- [ Add New User ] ---------------");
-                System.out.print("User ID : "+userNum);
-                user_id[max_user_id] = userNum;
-                System.out.print("Enter user name : ");
+                System.out.println("User ID : "+max_user_id);
+                user_id[max_user_id] = max_user_id;//ton
+                userNum = max_user_id;//dew
+                System.out.print("Enter user name : ");//ton
                 user_name[max_user_id] = sc.next();
                 System.out.print("Enter user phone number :");
                 user_phone_number[max_user_id] = sc.next();
@@ -71,7 +85,7 @@ public class Main{
                 user_email[max_user_id] = sc.next();
                 System.out.print("");
                 System.out.println("[ ! ] User Information");
-                System.out.println("User id : "+max_user_id);
+                System.out.println("User id : "+(max_user_id));
                 System.out.println("User name : "+user_name[max_user_id]);
                 System.out.println("User phone number : "+user_phone_number[max_user_id]);
                 System.out.println("User email address : "+user_email[max_user_id]);
@@ -82,11 +96,11 @@ public class Main{
                 input_String = sc.next();
                 input_String = input_String.toUpperCase();//TON//
 
-                userNum = max_user_id;//DEW//
+                //DEW//
                 AllUserId[userNum][0] = user_name[max_user_id];
                 AllUserId[userNum][1] = user_phone_number[max_user_id];
                 AllUserId[userNum][2] = user_email[max_user_id];
-                max_user_id += 1;//DEW//
+                //max_user_id++;//DEW//
 
                 if (input_String.equals("N")) {//TON//
                     System.out.println("All user information removed");
@@ -98,14 +112,16 @@ public class Main{
                 }
                 //TON//
                 if (input_String.equals("Y")) {
-                    System.out.println("All user information saved at user id "+max_user_id);
+                    System.out.println("All user information saved at user id "+(max_user_id+1));
 
-                    max_user_id += 1;//DEW//
+                    max_user_id ++;//DEW//
 
 //                    op = false;//DEW// ถ้าจะย้ายไป method อื่นให้ user กด 0 ดีกว่านะ  // 
 
 
-                }
+                }/*if  (sc.hasNextInt()){
+                    System.out.println("Try again !!!");
+                } */
 
             }
 
@@ -114,25 +130,38 @@ public class Main{
             if (input_int == 2) {
                 System.out.println("--------------- [ Add User Usage ] ---------------");
                 System.out.print("Enter user id : ");
-                input_int = sc.nextInt();
+                input_int = sc.nextInt(); 
+                userNum = input_int;
                 int selected_user_id = input_int;
                 System.out.println("You selected user id : "+input_int);
-                if (user_name[input_int].equals("") && user_email[input_int].equals("") && user_phone_number[input_int].equals("")) {
+                if(checkUserId == 0){
+                    System.out.print("Please add new user before.");
+                }
+                else if ( user_name[input_int].equals("") && user_email[input_int].equals("") && user_phone_number[input_int].equals("")) {
                     System.out.print("Don't have information for user id "+input_int);
                     System.out.print("Please add new user before.");
+                    sc.nextInt();
+                    continue;
                 } else {
                     System.out.print("Username : "+user_name[input_int]+"\n");
                     System.out.print("Email : "+user_email[input_int]+"\n");
                     System.out.print("Phone : "+user_phone_number[input_int]+"\n");
+
+                AllUserId[userNum][0] = user_name[input_int];//DEW//
+                AllUserId[userNum][1] = user_phone_number[input_int];
+                AllUserId[userNum][2] = user_email[input_int];
+                //DEW//
+
+                        //ตรงนี้ติดบัคใครก็ได้ช่วยแก้ใหหน่อย//  ):
                     System.out.print("Confirm this information ? \nEnter [ Y ] to confirm this information\nEnter [ N ] to cancle\nEnter ( Y or N ) here : ");
                     input_String = sc.next();
                     if (input_String.equals("N")) {
                         System.out.println("Okay...Back to home");
                         break;
                     }
-                    while (true) {
+                    //while (true) {
                         if (input_String.equals("Y")) {
-                            System.out.println("[ Edit User Usage Menu ]");
+                            System.out.println("[ Edit User Usage Menu ]");/* 
                             System.out.print("Enter 1 to add Thai massage 1 time\nEnter 2 to add Oil massage 1 time\nEnter 3 to add Herbal compress massage 1 time\nEnter 4 to add Facical sauna 1 time\nEnter 5 to add Herbal steam 1 time\nEnter 6 to add Aromatherapy 1 time\nEnter 7 to add Back massage\nEnter 8 to add Foot massage 1 time\nEnter 9 to add Facial spa 1 time\n");
                             System.out.print("Enter number here : ");
                             input_int = sc.nextInt();
@@ -167,7 +196,9 @@ public class Main{
                                 }
                             } else {
                                 System.out.println("You Entered the wrong number");
-                            }
+                            }*/
+                            Package();
+                            Employee();
                             System.out.println("Do you want to do again ?");
                             System.out.println("Enter [ Y ] to do again");
                             System.out.println("Enter [ N ] to exit to home");
@@ -180,13 +211,17 @@ public class Main{
                                 break;
                             }
                         }
-                    }
+                    //}
                 }
             }
-            if (input_int == 3) {
+            /*if (input_int == 3) {
                 while (true) {
                     System.out.print("Enter User ID : ");
                     input_int = sc.nextInt();
+                    if(checkUserId == 0){
+                    System.out.println("Please add new user before.");
+                    break;
+                    }
                     if (user_name[input_int].equals("") || user_email[input_int].equals("") || user_phone_number.equals("")) {
                         System.out.println("You ented the wrong number !");
                         System.out.println("Please try again");
@@ -248,18 +283,29 @@ public class Main{
                                 }
                             }
                             System.out.println("Total : "+selected_user_usage_total);
+                            Package();
+                            Employee();
+                            continue;
                         }//ton
                     }
                 }
 
-            }
+            }*/
             //dew
-            if (input_int == 4) {
+            if (input_int == 3) {
+                if(checkUserId == 0){
+                    System.out.println("Please add new user before.");
+                    continue;
+                }
                 Package();
                 Employee();
                 continue;
             }
             if (input_int == 4) {
+                if(checkUserId == 0){
+                    System.out.println("Please add new user before.");
+                    continue;
+            }
                 Bill();
                 continue;
             }//dew
@@ -278,6 +324,7 @@ public class Main{
     private static boolean[][] booked = new boolean[EMPLOYEE_SHIFTS.length][24];
     // --- End Data Definition ---
 
+     //KIT//
     public static void Employee() { //KIT//
         boolean op = true;
         System.out.println("ระบบจองเวลานวด (Massage Booking System)");
@@ -408,7 +455,7 @@ public class Main{
                     }else{
                         System.out.println("'มีข้อผิดพลาดกรุณาใส่หมายเลขอีกครั้ง'");
                     }
-                }
+                }System.out.print("สิ่งที่ลูกค้าเลือกทั้งหมด : "+keepPackage);
             }
 
         }
@@ -419,13 +466,22 @@ public class Main{
     public static void Bill(){
 
         System.out.println("--------------- [ Command Total ] ---------------");
+        /*if(AllUserId[userNum][0] == ""){
+            System.out.println("Enter user ID :");
+            AllUserId[userNum][0] = sc.next();
+            System.out.println("Enter user name :");
+            AllUserId[userNum][1] = sc.next();
+            System.out.println("Enter user Email  :");
+            AllUserId[userNum][2] = sc.next();
+        }*/
         System.out.println("ID : "+ ID);
-        System.out.println("ชื่อลูกค้า : " + AllUserId[userNum][0] );
-        System.out.println("เบอร์โทร : " + AllUserId[userNum][1] );
+        System.out.println("Name : " + AllUserId[userNum][0] );
+        System.out.println("Phone number : " + AllUserId[userNum][1] );
         System.out.println("Email : "+ AllUserId[userNum][2] );
         System.out.println(keepPackage);
         System.out.println("Total : "+Price);
         System.out.println("-------------------- [ end ] ----------------------");
+        userNum ++;
     }//DEW//
 
 

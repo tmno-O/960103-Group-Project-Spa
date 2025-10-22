@@ -428,7 +428,7 @@ public class Main{
                 }
                 choice = sc.nextInt();
                 if(choice > 0 && choice <= 3){
-                    System.out.print("ลูกค้าเลือก"+"[ "+ choice +" ] : "+bookingsSet[choice-1] + " : ราคา "+priceSet[choice-1]+" บาท");
+                    System.out.print("ลูกค้าเลือก : "+"[ "+ choice +" ] : "+bookingsSet[choice-1] + " : ราคา "+priceSet[choice-1]+" บาท");
                     keepPackage += "[ "+ choice +" ] : "+bookingsSet[choice-1] + " : ราคา "+priceSet[choice-1]+" บาท";
                     Price= priceSet[choice-1] ;
                     condition = false;
@@ -448,16 +448,15 @@ public class Main{
                     System.out.print("เลือกหมายเลขบริการ : ");
                     choice = sc.nextInt();
                     if(choice > 0 && choice <= 7){
-                        System.out.print("ลูกค้าเลือก"+"[ "+ choice +" ] : "+bookingsPac[choice-1] + " : ราคา "+pricePac[choice-1]+" บาท");
+                        System.out.println("ลูกค้าเลือก : "+"[ "+ choice +" ] : "+bookingsPac[choice-1] + " : ราคา "+pricePac[choice-1]+" บาท");
                         keepPackage += "[ "+ choice +" ] : "+bookingsPac[choice-1] + " : ราคา "+pricePac[choice-1]+" บาท"+"\n";
                         Price += pricePac[choice-1] ;
                         condition = false;
                     }else{
                         System.out.println("'มีข้อผิดพลาดกรุณาใส่หมายเลขอีกครั้ง'");
                     }
-                }System.out.print("สิ่งที่ลูกค้าเลือกทั้งหมด : "+keepPackage);
+                }System.out.println("\nสิ่งที่ลูกค้าเลือกทั้งหมด : \n"+keepPackage);
             }
-
         }
     } //fasai//
 
@@ -482,6 +481,7 @@ public class Main{
         System.out.println("Total : "+Price);
         System.out.println("-------------------- [ end ] ----------------------");
         userNum ++;
+        keepPackage = "";
     }//DEW//
 
 

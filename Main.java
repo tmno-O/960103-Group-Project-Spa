@@ -359,6 +359,7 @@ public class Main{
 
                             System.out.print("โปรดเลือกหมายเลขบริการที่ท่านต้องการ: ");
                             select_service_number = sc.nextInt();//ton
+                            keepPackage += "[ " + select_service_number + " ] : " + bookingsSet[select_service_number - 1] + " : ราคา " + priceSet[select_service_number - 1]+"\n"; 
                             if (select_service_number == 0)//ton  //เค้าแก้ๆแล้วใส่่เลข 0 มันก็ออกไปเลยจากโลกนี้อะ/
                                 break; // เพิ่ม break เพื่อออกจากลูปย่อย
 
@@ -407,16 +408,19 @@ public class Main{
                     if (user_input_number == 4) {
 
                         boolean get_discount = false;
-
                         if (user_selected_service_name.size() > 7 && get_discount == false) {
-                            Price = Price * 0.8;
-                            System.out.println("คุณได้รับส่วนลดระดับ VIP ( 20% )"+/*check_vip(current_price)*/Price);
+                            keepPackage += Price + "\nบาท : ลดไป : "+(Price*0.2)+" บาท\n";//dew
+                            Price = Price * 0.8;//dew
+                            System.out.println("คุณได้รับส่วนลดระดับ VIP ( 20% ) : "+/*check_vip(current_price)*/Price+"บาท");
+                            keepPackage += "\nคุณได้รับส่วนลดระดับ VIP ( 20% ) : "+ Price+"บาท\n";
                             get_discount = true;
                         }
 
                         if (user_selected_service_name.size() >= 3 && user_selected_service_name.size() <= 9 && get_discount == false) {
+                            keepPackage += Price + "\nบาท : ลดไป : "+(Price*0.1)+" บาท\n";//dew
                             Price = Price * 0.9;
-                            System.out.println("คุณได้รับส่วนลดระดับ Premium ( 10% ) "+/*check_premium(current_price)*/Price);
+                            System.out.println("คุณได้รับส่วนลดระดับ Premium ( 10% ) "+/*check_premium(current_price)*/Price+"บาท");
+                            keepPackage += "\nคุณได้รับส่วนลดระดับ Premium ( 10% ) : "+ Price+"บาท\n";
                             get_discount = true;
                         }
                         condition = false;

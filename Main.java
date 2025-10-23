@@ -1,5 +1,4 @@
 //Dew
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -406,7 +405,7 @@ public class Main{
         }
     } //KIT//
 
-//น้องฟ้าาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาา//
+
     //fasai//
    public static void Package() {
         String[] bookingsPac = { "นวดแผนไทย", "นวดน้ำมัน", "อบสมุนไพร", "อโรม่า", "นวดหลัง", "นวดเท้า", "สปาหน้า" };

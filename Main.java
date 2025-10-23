@@ -1,7 +1,7 @@
 //Dew
 
-import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main{
     //DEW//
@@ -489,14 +489,11 @@ public class Main{
                         while (true) {
                             
                             System.out.println("เลือกบริการที่ลูกค้าต้องการ");
-                            String[] list_of_service_name = { "นวดแผนไทย", "นวดน้ำมัน", "นวดประคบสมุนไพร", "ซาวหน้า",
-                                    "อบสมุนไพร", "อโรม่า", "นวดหลัง", "นวดเท้า", "สปาหน้า" };
-                            Double[] list_of_service_price = { 100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0,
-                                    900.0 };
+                            String[] list_of_service_name = { "นวดแผนไทย", "นวดน้ำมัน", "นวดประคบสมุนไพร", "ซาวหน้า", "อบสมุนไพร", "อโรม่า", "นวดหลัง", "นวดเท้า", "สปาหน้า" };
+                            Double[] list_of_service_price = { 100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0,900.0 };
 
                             for (int i = 0; i < list_of_service_name.length; i++) { // เปลี่ยน <= เป็น <
-                                System.out.println("[ " + (i + 1) + " ] " + list_of_service_name[i] + " ราคา : "
-                                        + list_of_service_price[i]);
+                                System.out.println("[ " + (i + 1) + " ] " + list_of_service_name[i] + " ราคา : " + list_of_service_price[i]);
                             }
 
                             System.out.println("[ 0 ] หากไม่ต้องการเพิ่มบริการใดๆ");
@@ -598,9 +595,4 @@ public class Main{
         Price = 0;
         keepPackage = "";
     }//DEW//
-
-
-  
-//
-
 }

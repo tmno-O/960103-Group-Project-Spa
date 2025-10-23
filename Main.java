@@ -1,6 +1,7 @@
 //Dew
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main{
     //DEW//
@@ -13,6 +14,7 @@ public class Main{
     public static boolean stop = true;
     //public static int ID = 0;//dew
     public static int checkUserId= 0;//ton 
+    public static int select_service_number ;
     
 
     //TON//
@@ -137,6 +139,8 @@ public class Main{
                 if(checkUserId == 0){
                     System.out.print("Please add new user before.");
                 }
+
+                //แก้บัคให้หน่อยเวลาใส่่เลขเกินกว่าที่จะมีid user พอดีพิมดูแล้วมันบัคอยู่//
                 else if ( user_name[input_int].equals("") && user_email[input_int].equals("") && user_phone_number[input_int].equals("")) {
                     System.out.print("Don't have information for user id "+input_int);
                     System.out.print("Please add new user before.");
@@ -145,14 +149,14 @@ public class Main{
                 } else {
                     System.out.print("\nUsername : "+user_name[input_int]+"\n");
                     System.out.print("Email : "+user_email[input_int]+"\n");
-                    System.out.print("Phone : "+user_phone_number[input_int]+"\n");
+                    System.out.print("Phone : "+user_phone_number[input_int]+"\n"); //TON//
 
                 AllUserId[userNum][0] = user_name[input_int];//DEW//
                 AllUserId[userNum][1] = user_phone_number[input_int];
                 AllUserId[userNum][2] = user_email[input_int];
                 //DEW//
 
-                        //ตรงนี้ติดบัคใครก็ได้ช่วยแก้ใหหน่อย//  ):
+                        //ตรงนี้ติดบัคใครก็ได้ช่วยแก้ใหหน่อย//  )://TON//
                     System.out.print("Confirm this information ? \nEnter [ Y ] to confirm this information\nEnter [ N ] to cancle\nEnter ( Y or N ) here : ");
                     input_String = sc.next();
                     if (input_String.equals("N")) {
@@ -161,7 +165,7 @@ public class Main{
                     }
                     //while (true) {
                         if (input_String.equals("Y")) {
-                            System.out.println("[ Edit User Usage Menu ]");/* 
+                            System.out.println("[ Edit User Usage Menu ]");/* //TON
                             System.out.print("Enter 1 to add Thai massage 1 time\nEnter 2 to add Oil massage 1 time\nEnter 3 to add Herbal compress massage 1 time\nEnter 4 to add Facical sauna 1 time\nEnter 5 to add Herbal steam 1 time\nEnter 6 to add Aromatherapy 1 time\nEnter 7 to add Back massage\nEnter 8 to add Foot massage 1 time\nEnter 9 to add Facial spa 1 time\n");
                             System.out.print("Enter number here : ");
                             input_int = sc.nextInt();
@@ -421,7 +425,7 @@ public class Main{
         while (condition) {
 
             System.out.println("หมายเลขรูปแบบการบริการซ");
-            System.out.println("[ 1 ] รูปแบบ Set package\n[ 2 ] รูปแบบ Package\n[ 3 ] แบบรายการ");
+            System.out.println("[ 1 ] รูปแบบ Set package\n[ 2 ] รูปแบบ Package\n[ 3 ] แบบมีส่วนลด");
             num = sc.nextInt();
             if (!(num > 0 && num >= 2)) {
                 System.out.println("'มีข้อผิดพลาดกรุณาใส่หมายเลขอีกครั้ง'");
@@ -467,7 +471,9 @@ public class Main{
                     }
                 }
                 System.out.println("\nสิ่งที่ลูกค้าเลือกทั้งหมด : \n" + keepPackage);
-            }
+            }//fasai//
+
+
             // Ton Calculate
             if (num == 3) {
                 ArrayList<String> user_selected_service_name = new ArrayList<>();
@@ -475,12 +481,13 @@ public class Main{
                 while (true) {
                     int user_input_number = 0;
                     System.out.print(
-                            "[ 1 ] เพิ่มบริการที่ต้องการใช้บริการ\n[ 2 ] แสดงรายการทั้งหมด\n[ 3 ] ยกเลิกบริการที่ได้เลือกไว้\n[ 4 ] คำนวณราคาทั้งหมด\n");
+                            "\n[ 1 ] เพิ่มบริการที่ต้องการใช้บริการ\n[ 2 ] แสดงรายการทั้งหมด\n[ 3 ] ยกเลิกบริการที่ได้เลือกไว้\n[ 4 ] คำนวณราคาทั้งหมด\n");
                     System.out.print("เลือกสิ่งที่ต้องการจะทำ: ");
                     user_input_number = sc.nextInt();
 
                     if (user_input_number == 1) {
                         while (true) {
+                            
                             System.out.println("เลือกบริการที่ลูกค้าต้องการ");
                             String[] list_of_service_name = { "นวดแผนไทย", "นวดน้ำมัน", "นวดประคบสมุนไพร", "ซาวหน้า",
                                     "อบสมุนไพร", "อโรม่า", "นวดหลัง", "นวดเท้า", "สปาหน้า" };
@@ -494,9 +501,10 @@ public class Main{
 
                             System.out.println("[ 0 ] หากไม่ต้องการเพิ่มบริการใดๆ");
                             System.out.print("โปรดเลือกหมายเลขบริการที่ท่านต้องการ: ");
-                            int select_service_number = sc.nextInt();
-
-                            if (select_service_number == 0)
+                            select_service_number = sc.nextInt();//ton
+                            //keepPackage += "\n[ "+select_service_number+ " ]"+ list_of_service_name[select_service_number-1]+ " : " + list_of_service_price[select_service_number-1]+"\n";
+                            Price += list_of_service_price[select_service_number-1];//dew
+                            if (select_service_number == 0)//ton  //เค้าแก้ๆแล้วใส่่เลข 0 มันก็ออกไปเลยจากโลกนี้อะ/
                                 break; // เพิ่ม break เพื่อออกจากลูปย่อย
 
                             // แก้เงื่อนไขให้ถูก
@@ -522,11 +530,11 @@ public class Main{
                             list_price += user_selected_service_price.get(i);
                         }
                         while (true) {
-                            System.out.println("เลือกหมายเลขที่ท่านต้องการจะยกเลิก");
+                            System.out.println("\nเลือกหมายเลขที่ท่านต้องการจะยกเลิก");
                             for (int i = 0; i < user_selected_service_name.size(); i++) {
                                 System.out.println("รายการที่ " + (i + 1) + " : " + user_selected_service_name.get(i));
                             }
-                            System.out.println("กด [ 0 ] หากไม่ต้องการยกเลิกบริการใดๆ");
+                            System.out.println("กด [ 0 ] หากไม่ต้องการยกเลิกบริการใดๆ\n");
                             int cancle_user_selected_number = sc.nextInt();
                             if (cancle_user_selected_number == 0) {
                                 break;
@@ -547,11 +555,13 @@ public class Main{
                             current_price += user_selected_service_price.get(i);
                         }
                         if (user_selected_service_name.size() >= 5 && user_selected_service_name.size() <= 9 && get_discount == false) {
-                            System.out.println("คุณได้รับส่วนลดระดับ Premium ( 10% ) "+check_premium(current_price));
+                            current_price = Price * 0.9;
+                            System.out.println("คุณได้รับส่วนลดระดับ Premium ( 10% ) "+/*check_premium(current_price)*/Price);
                             get_discount = true;
                         }
                         if (user_selected_service_name.size() > 10 && get_discount == false) {
-                            System.out.println("คุณได้รับส่วนลดระดับ VIP ( 20% )"+check_vip(current_price));
+                            current_price = Price * 0.8;
+                            System.out.println("คุณได้รับส่วนลดระดับ VIP ( 20% )"+/*check_vip(current_price)*/Price);
                             get_discount = true;
                         }
                     }
@@ -560,7 +570,7 @@ public class Main{
             // Ton //
         }
     }
-    // fasai//
+    
 
 
     //DEW//

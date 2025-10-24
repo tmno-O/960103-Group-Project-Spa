@@ -15,6 +15,14 @@ public class Main{
     public static int checkUserId= 0;//ton 
     public static int select_service_number ;
 
+    public static double cal_20per(double price) {
+        return price * 0.8;
+    }
+
+    public static double cal_10per (double price) {
+        return price * 0.9;
+    }
+
 
     //TON//
     public static void main(String[]args){
@@ -399,13 +407,13 @@ public class Main{
                         boolean get_discount = false;
 
                         if (user_selected_service_name.size() > 7 && get_discount == false) {
-                            Price = Price * 0.8;
+                            Price = cal_20per(Price);
                             System.out.println("คุณได้รับส่วนลดระดับ VIP ( 20% )"+ Price);
                             get_discount = true;
                         }
 
                         if (user_selected_service_name.size() >= 3 && user_selected_service_name.size() <= 9 && get_discount == false) {
-                            Price = Price * 0.9;
+                            Price = cal_10per(Price);
                             System.out.println("คุณได้รับส่วนลดระดับ Premium ( 10% ) "+ Price);
                             get_discount = true;
                         }
@@ -415,9 +423,6 @@ public class Main{
                         }
                         condition = false;
                         break;
-
-
-
                     }
 
                 }// Ton Calculate But Kit,Dew Edit

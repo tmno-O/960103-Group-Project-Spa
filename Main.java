@@ -1,18 +1,10 @@
+//Dew
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
-
 public class Main{
-    public static double discount_20 (double price) {
-    return price * 0.80;
-}
-
-public static double discount_10 (double price) {
-    return price * 0.90;
-}
-    //Dew 682110117
+    //DEW//
     public static String keepPackage = "";
     public static int userNum = 10000;
     public static String[][] AllUserId = new String[userNum][4];
@@ -20,19 +12,11 @@ public static double discount_10 (double price) {
     public static Scanner sc = new Scanner(System.in);
     public static double Price = 0;
     public static boolean stop = true;
-    public static int checkUserId= 0;//ton 682110162
-    public static int select_service_number ;//Dew 682110117
-
-    public static double cal_20per(double price) {
-        return price * 0.8;
-    }
-
-    public static double cal_10per (double price) {
-        return price * 0.9;
-    }
+    public static int checkUserId= 0;//ton 
+    public static int select_service_number ;
 
 
-    //TON 682110162//
+    //TON//
     public static void main(String[]args){
         int max_user_id = 0;
         // User Array
@@ -58,14 +42,14 @@ public static double discount_10 (double price) {
             System.out.println("ใส่ [ 0 ] เพื่อ ออกจากโปรเเกรม");
             System.out.print("ใส่เลขตรงนี้ : ");
 
-            //Dew 682110117
+            //dew
             while(!sc.hasNextInt()){//ถ้าไม่ป้อนตัวเลขบังคับให้ใส่เลขใหม่ (: (: (:
                 System.out.println("Error : ใส่ข้อมูลผิด!!!");
                 System.out.println("กรุณาลองอีกครั้ง ..");
                 sc.next(); // ล้างค่าที่ป้อนไม่ใช่ตัวเลขไม่งั้นมันจะทำงานไม่ได้  ******
                 System.out.print("ใส่เลขตรงนี้ : ");
 
-            }//Dew 682110117
+            }//dew
             input_int = sc.nextInt();
 
             if (input_int == 0) {
@@ -84,9 +68,9 @@ public static double discount_10 (double price) {
                 checkUserId = 1;
                 System.out.println("\n--------------- [ Add New User ] ---------------\n");
                 System.out.println("User ID : "+(max_user_id+1));
-                user_id[max_user_id] = max_user_id;//ton 682110162
-                userNum = max_user_id;//Dew 682110117
-                System.out.print("ใส่ชื่อลูกค้า : ");//ton 682110162
+                user_id[max_user_id] = max_user_id;//ton
+                userNum = max_user_id;//dew
+                System.out.print("ใส่ชื่อลูกค้า : ");//ton
                 user_name[max_user_id] = sc.next();
                 System.out.print("ใส่เบอร์โทรลูกค้า : ");
                 user_phone_number[max_user_id] = sc.next();
@@ -106,33 +90,33 @@ public static double discount_10 (double price) {
                 System.out.print("Enter ( Y or N ) here : ");
 
                 input_String = sc.next();
-                input_String = input_String.toUpperCase();//TON 682110162//
+                input_String = input_String.toUpperCase();//TON//
 
                 AllUserId[userNum][0] = user_name[max_user_id];
                 AllUserId[userNum][1] = user_phone_number[max_user_id];
                 AllUserId[userNum][2] = user_email[max_user_id];
-                //Dew 682110117//
+                //DEW//
 
-                if (input_String.equals("N")) {//TON 682110162//
+                if (input_String.equals("N")) {//TON//
                     System.out.println("All user information removed");
                     user_name[max_user_id] = "";
                     user_phone_number[max_user_id] = "";
                     user_email[max_user_id] = "";
-                    continue;//TON 682110162//
+                    continue;//TON//
 
                 }
-                //TON 682110162//
+                //TON//
                 if (input_String.equals("Y")) {
                     System.out.println("All user information saved at user id "+(max_user_id+1));
 
-                    max_user_id ++;//Dew 682110117//
+                    max_user_id ++;//DEW//
 
 
 
                 }
 
             }
-            //TON 682110162//
+            //TON//
             // เพิ่มการใช้งานของ user
             if (input_int == 2) {
                 System.out.println("\n--------------- [ Add User Usage ] ---------------\n");
@@ -156,14 +140,14 @@ public static double discount_10 (double price) {
                 } else {
                     System.out.print("\nUsername : "+user_name[input_int]+"\n");
                     System.out.print("Email : "+user_email[input_int]+"\n");
-                    System.out.print("Phone : "+user_phone_number[input_int]+"\n"); //TON 682110162//
+                    System.out.print("Phone : "+user_phone_number[input_int]+"\n"); //TON//
 
-                    AllUserId[userNum][0] = user_name[input_int];//Dew 682110117//
+                    AllUserId[userNum][0] = user_name[input_int];//DEW//
                     AllUserId[userNum][1] = user_phone_number[input_int];
                     AllUserId[userNum][2] = user_email[input_int];
-                    //Dew 682110117//
+                    //DEW//
 
-                    //ตรงนี้ติดบัคใครก็ได้ช่วยแก้ใหหน่อย//  )://TON 682110162//
+                    //ตรงนี้ติดบัคใครก็ได้ช่วยแก้ใหหน่อย//  )://TON//
                     System.out.print("Confirm this information ? \nEnter [ Y ] to confirm this information\nEnter [ N ] to cancle\nEnter ( Y or N ) here : ");
                     input_String = sc.next();
                     if (input_String.equals("N")) {
@@ -190,7 +174,7 @@ public static double discount_10 (double price) {
                     //}
                 }
             }
-            //Dew 682110117
+            //dew
             if (input_int == 3) {
                 if(checkUserId == 0){
                     System.out.println("Please add new user before.");
@@ -207,7 +191,7 @@ public static double discount_10 (double price) {
                 }
                 Bill();
                 continue;
-            }//Dew 682110117
+            }//dew
         }
 
     }
@@ -220,8 +204,8 @@ public static double discount_10 (double price) {
     public static boolean[][] booked = new boolean[EMPLOYEE_SHIFTS.length][24];
     // --- End Data Definition ---
 
-    
-    public static void Employee() { //KIT682110201//
+    //KIT//
+    public static void Employee() { //KIT//
 
             System.out.println("\nระบบจองเวลานวด (Massage Booking System)");
             System.out.print("กรอกเวลาที่ต้องการนวด (8-20) นาฬิกา : ");
@@ -236,11 +220,11 @@ public static double discount_10 (double price) {
                 System.out.println("❌ กรุณาใส่ชั่วโมงให้อยู่ในช่วง 8 ถึง 20 นาฬิกา");
             }
             processBooking(hour);
-            //KIT682110201//
+            //KIT//
 
     }
 
-    public static int findWorkingEmployeeIndex(int hour) { //KIT682110201//
+    public static int findWorkingEmployeeIndex(int hour) { //KIT//
         for (int i = 0; i < EMPLOYEE_SHIFTS.length; i++) {
             int start = EMPLOYEE_SHIFTS[i][1]; // Shift Start
             int end = EMPLOYEE_SHIFTS[i][2];   // Shift End
@@ -252,7 +236,7 @@ public static double discount_10 (double price) {
         return -1;
     }
 
-    public static void processBooking(int hour) { //KIT682110201//
+    public static void processBooking(int hour) { //KIT//
         int checkindex = findWorkingEmployeeIndex(hour);
 
         if (checkindex == -1) {
@@ -266,24 +250,24 @@ public static double discount_10 (double price) {
                         ") เวลา " + hour + " นาฬิกา");
                 //kit//
 
-                //Dew 682110117 - Bill//
+                //DEW - Bill//
                 AllBooking[userNum][0]=userNum;
                 AllBooking[userNum][1]= hour;
-                //Dew 682110117 - Bill//
+                //DEW - Bill//
 
                 //kit//
             } else {
                 System.out.println("⛔ เวลา " + hour + " นาฬิกา หมอ " + STAFF_NAMES[checkindex] + " ไม่ว่างแล้ว");
             }
         }
-    } //KIT682110201//
+    } //KIT//
 
-
+    //fasai//
     public static String[] bookingsPac = { "นวดแผนไทย", "นวดน้ำมัน", "อบสมุนไพร", "อโรม่า", "นวดหลัง", "นวดเท้า", "สปาหน้า" };
     public static String[] bookingsSet = new String[3];
 
-    //farsai 682110184//
-    public static void SetPackage() {
+
+    public static void Choice() {
         bookingsSet[0] = bookingsPac[0] + ", " + bookingsPac[1] + ", " + bookingsPac[2];
         bookingsSet[1] = bookingsPac[3] + ", " + bookingsPac[4] + ", " + bookingsPac[6] + ", " + bookingsPac[5];
         bookingsSet[2] = bookingsPac[0] + ", " + bookingsPac[1] + ", " + bookingsPac[2] + ", " + bookingsPac[6] + ", " + bookingsPac[3];
@@ -293,7 +277,7 @@ public static double discount_10 (double price) {
                     System.out.println("[ " + (i + 1) + " ] : " + bookingsSet[i] + " : ราคา " + priceSet[i] + " บาท");
                 }
     }
-    //farsai 682110184//
+
     public static void Package() {
         bookingsSet[0] = bookingsPac[0] + ", " + bookingsPac[1] + ", " + bookingsPac[2];
         bookingsSet[1] = bookingsPac[3] + ", " + bookingsPac[4] + ", " + bookingsPac[6] + ", " + bookingsPac[5];
@@ -307,14 +291,14 @@ public static double discount_10 (double price) {
         while (condition) {
 
             System.out.println("หมายเลขรูปแบบการบริการ");
-            System.out.println("[ 1 ] รูปแบบ Set package\n[ 2 ] รูปแบบ Package\n[ 3 ] แบบมีส่วนลด");
+            System.out.println("[ 1 ] รูปแบบ Set package\n[ 2 ] รูปแบบ Package");
             System.out.print("เลือกสิ่งที่ต้องการจะทำ: ");
             num = sc.nextInt();
             if (!(num > 0 && num >= 2)) {
                 System.out.println("'มีข้อผิดพลาดกรุณาใส่หมายเลขอีกครั้ง'");
             }
             if (num == 1) {
-             SetPackage();
+                Choice();
                 choice = sc.nextInt();
                 if (choice > 0 && choice <= 3) {
                     System.out.print("ลูกค้าเลือก : " + "[ " + choice + " ] : " + bookingsSet[choice - 1] + " : ราคา " + priceSet[choice - 1] + " บาท");
@@ -332,7 +316,8 @@ public static double discount_10 (double price) {
                 for (int i = 0; i < n2; i++) {
                     System.out.println("\nsหมายเลขบริการ แบบ Package");
                     for (int j = 0; j < bookingsPac.length; j++) {
-                        System.out.println("[ " + (j + 1) + " ] : " + bookingsPac[j] + " : ราคา " + pricePac[j] + " บาท");
+                        System.out
+                                .println("[ " + (j + 1) + " ] : " + bookingsPac[j] + " : ราคา " + pricePac[j] + " บาท");
                     }
                     System.out.print("เลือกหมายเลขบริการ : ");
                     choice = sc.nextInt();
@@ -348,132 +333,13 @@ public static double discount_10 (double price) {
                     }
                 }
                 System.out.println("\nสิ่งที่ลูกค้าเลือกทั้งหมด : \n" + keepPackage);
-            }
+            }//fasai//
 
-            //Ton 682110162//
-            if (num == 3) {
-                ArrayList<String> user_selected_service_name = new ArrayList<>();
-                ArrayList<Double> user_selected_service_price = new ArrayList<>();
-                while (true) {
-                    int user_input_number = 0;
-                    System.out.print("\n[ 1 ] เพิ่มบริการที่ต้องการใช้บริการ\n[ 2 ] แสดงรายการทั้งหมด\n[ 3 ] ยกเลิกบริการที่ได้เลือกไว้\n[ 4 ] ดำเนินการต่อ\n");
-                    System.out.print("เลือกสิ่งที่ต้องการจะทำ: ");
-                    user_input_number = sc.nextInt();
+            //Ton//
 
-                    if (user_input_number == 1) {
-                        while (true) {
-
-                            System.out.println("เลือกบริการที่ลูกค้าต้องการ");
-                            String[] list_of_service_name = { "นวดแผนไทย", "นวดน้ำมัน", "นวดประคบสมุนไพร", "ซาวหน้า", "อบสมุนไพร", "อโรม่า", "นวดหลัง", "นวดเท้า", "สปาหน้า" };
-                            Double[] list_of_service_price = { 100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0 };
-
-                            for (int i = 0; i < list_of_service_name.length; i++) { // เปลี่ยน <= เป็น <
-                                System.out.println("[ " + (i + 1) + " ] " + list_of_service_name[i] + " ราคา : "
-                                        + list_of_service_price[i]);
-                            }
-
-                            System.out.println("[ 0 ] หากไม่ต้องการเพิ่มบริการใดๆ");
-
-                            System.out.print("โปรดเลือกหมายเลขบริการที่ท่านต้องการ: ");
-                            select_service_number = sc.nextInt();//ton 682110162
-//<<<<<<< HEAD
-                            keepPackage += "[ " + select_service_number + " ] : " + bookingsSet[select_service_number - 1] + " : ราคา " + priceSet[select_service_number - 1]+"\n"; 
-                            if (select_service_number == 0)//ton 682110162  //เค้าแก้ๆแล้วใส่่เลข 0 มันก็ออกไปเลยจากโลกนี้อะ/
-//=======
-                            if (select_service_number == 0)//ton 682110162
-//>>>>>>> a591ee0f2bdf97021405d002c6b387151051ddaa
-                                break; // เพิ่ม break เพื่อออกจากลูปย่อย
-
-                            // แก้เงื่อนไขให้ถูก
-                            if (select_service_number > 0 && select_service_number <= list_of_service_name.length) {
-                                Price += list_of_service_price[select_service_number-1];//Dew 682110117
-                                user_selected_service_name.add(list_of_service_name[select_service_number - 1]);
-                                user_selected_service_price.add(list_of_service_price[select_service_number - 1]);
-                                System.out.println("สำเร็จ!!");
-                            } else {
-                                System.out.println("หมายเลขไม่ถูกต้อง");
-                            }
-                        }
-                    }
-                    if (user_input_number == 2) {
-                        System.out.println("รายการทั้งหมด");
-                        for (int i = 0; i < user_selected_service_name.size(); i++) { // เปลี่ยน <= เป็น <
-                            System.out.println("รายการที่ " + (i + 1) + " : " + user_selected_service_name.get(i));
-                        }
-                        System.out.println(" ");
-                    }
-                    if (user_input_number == 3) {
-                        int list_price = 0;
-                        for (int i = 0; i < user_selected_service_price.size(); i ++) {
-                            list_price += user_selected_service_price.get(i);
-                        }
-                        while (true) {
-                            System.out.println("\nเลือกหมายเลขที่ท่านต้องการจะยกเลิก");
-                            for (int i = 0; i < user_selected_service_name.size(); i++) {
-                                System.out.println("รายการที่ " + (i + 1) + " : " + user_selected_service_name.get(i));
-                            }
-                            System.out.println("กด [ 0 ] หากไม่ต้องการยกเลิกบริการใดๆ\n");
-                            int cancle_user_selected_number = sc.nextInt();
-                            if (cancle_user_selected_number == 0) {
-                                break;
-                            }
-                            if (cancle_user_selected_number > 0 && cancle_user_selected_number <= user_selected_service_name.size()) {
-                                System.out.println(user_selected_service_name.get(cancle_user_selected_number - 1) + " ถูกลบออกไปแล้ว");
-                                user_selected_service_name.remove(cancle_user_selected_number - 1);
-                                user_selected_service_price.remove(cancle_user_selected_number - 1);
-                            } else {
-                                System.out.println("ท่านกดผิดโปรดดำเนินการใหม่อีกครั้ง");
-                            }
-                        }
-                    }
-                    if (user_input_number == 4) {
-
-                        boolean get_discount = false;
-                        if (user_selected_service_name.size() > 7 && get_discount == false) {
-//<<<<<<< HEAD
-//<<<<<<< HEAD
-                            keepPackage += Price + "\nบาท : ลดไป : "+(Price*0.2)+" บาท\n";//Dew 682110117
-                            Price = discount_20(Price);//Dew 682110117
-                            System.out.println("คุณได้รับส่วนลดระดับ VIP ( 20% ) : "+/*check_vip(current_price)*/Price+"บาท");
-                            keepPackage += "\nคุณได้รับส่วนลดระดับ VIP ( 20% ) : "+ Price+"บาท\n";
-//=======
-                            Price = discount_10(Price);
-//=======
-                            Price = cal_20per(Price);
-//>>>>>>> 5f608f12df35e5d27435a65844b410fec0d442ad
-                            System.out.println("คุณได้รับส่วนลดระดับ VIP ( 20% )"+ Price);
-//>>>>>>> a591ee0f2bdf97021405d002c6b387151051ddaa
-                            get_discount = true;
-                        }
-
-                        if (user_selected_service_name.size() >= 3 && user_selected_service_name.size() <= 9 && get_discount == false) {
-//<<<<<<< HEAD
-                            keepPackage += Price + "\nบาท : ลดไป : "+(Price*0.1)+" บาท\n";//Dew 682110117
-                            Price = Price * 0.9;
-//<<<<<<< HEAD
-                            System.out.println("คุณได้รับส่วนลดระดับ Premium ( 10% ) "+/*check_premium(current_price)*/Price+"บาท");
-                            keepPackage += "\nคุณได้รับส่วนลดระดับ Premium ( 10% ) : "+ Price+"บาท\n";
-//=======
-//=======
-                            Price = cal_10per(Price);
-//>>>>>>> 5f608f12df35e5d27435a65844b410fec0d442ad
-                            System.out.println("คุณได้รับส่วนลดระดับ Premium ( 10% ) "+ Price);
-//>>>>>>> a591ee0f2bdf97021405d002c6b387151051ddaa
-                            get_discount = true;
-                        }
-
-                        for (int i = 0; i < user_selected_service_name.size(); i++) {
-                            keepPackage += "\nรายการที่ " + (i + 1) + " : " + user_selected_service_name.get(i);
-                        }
-                        condition = false;
-                        break;
-                    }
-
-                }// Ton Calculate But Kit,Dew 682110117 Edit
-            }
         }
     }
-    //Dew 682110117//
+    //DEW//
     public static void Bill(){
 
         System.out.println("--------------- [ Command Total ] ---------------");
@@ -489,7 +355,7 @@ public static double discount_10 (double price) {
         userNum ++;
         Price = 0;
         keepPackage = "";
-    }//Dew 682110117//
+    }//DEW//
 
 //
 
